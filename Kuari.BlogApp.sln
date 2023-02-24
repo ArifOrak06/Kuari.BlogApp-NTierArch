@@ -3,15 +3,15 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.4.33213.308
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlogApp.Core", "BlogApp.Core\BlogApp.Core.csproj", "{FB79FFAF-1D58-4205-80CB-A2208CA38F4A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlogApp.Core", "BlogApp.Core\BlogApp.Core.csproj", "{FB79FFAF-1D58-4205-80CB-A2208CA38F4A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlogApp.Repository", "BlogApp.Repository\BlogApp.Repository.csproj", "{8C716C9B-57B8-4465-AE29-0A3EC34C5D8E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlogApp.Repository", "BlogApp.Repository\BlogApp.Repository.csproj", "{8C716C9B-57B8-4465-AE29-0A3EC34C5D8E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlogApp.Service", "BlogApp.Service\BlogApp.Service.csproj", "{B500F12B-6005-4333-B24C-FC197F10FE13}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlogApp.Service", "BlogApp.Service\BlogApp.Service.csproj", "{B500F12B-6005-4333-B24C-FC197F10FE13}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlogApp.SharedLibrary", "BlogApp.SharedLibrary\BlogApp.SharedLibrary.csproj", "{46DEB4E2-6529-4188-B5A0-95A416AAD0BF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlogApp.WebAPI", "BlogApp.WebAPI\BlogApp.WebAPI.csproj", "{FC80CEE1-AF9A-4C7F-81F8-394E070CB35D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlogApp.WebAPI", "BlogApp.WebAPI\BlogApp.WebAPI.csproj", "{FC80CEE1-AF9A-4C7F-81F8-394E070CB35D}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlogApp.SharedLibrary", "BlogApp.SharedLibrary\BlogApp.SharedLibrary.csproj", "{6973F55B-120C-4814-8CCA-E7204EB32E91}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -31,14 +31,14 @@ Global
 		{B500F12B-6005-4333-B24C-FC197F10FE13}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B500F12B-6005-4333-B24C-FC197F10FE13}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B500F12B-6005-4333-B24C-FC197F10FE13}.Release|Any CPU.Build.0 = Release|Any CPU
-		{46DEB4E2-6529-4188-B5A0-95A416AAD0BF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{46DEB4E2-6529-4188-B5A0-95A416AAD0BF}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{46DEB4E2-6529-4188-B5A0-95A416AAD0BF}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{46DEB4E2-6529-4188-B5A0-95A416AAD0BF}.Release|Any CPU.Build.0 = Release|Any CPU
 		{FC80CEE1-AF9A-4C7F-81F8-394E070CB35D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{FC80CEE1-AF9A-4C7F-81F8-394E070CB35D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FC80CEE1-AF9A-4C7F-81F8-394E070CB35D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FC80CEE1-AF9A-4C7F-81F8-394E070CB35D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6973F55B-120C-4814-8CCA-E7204EB32E91}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6973F55B-120C-4814-8CCA-E7204EB32E91}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6973F55B-120C-4814-8CCA-E7204EB32E91}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6973F55B-120C-4814-8CCA-E7204EB32E91}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

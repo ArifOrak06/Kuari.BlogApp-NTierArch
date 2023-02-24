@@ -10,6 +10,6 @@ namespace BlogApp.Core.Entities.Concrete
     public class Category : BaseEntity
     {
         public string Name { get; set; }
-        public ICollection<Article> Articles { get; set; }
+        public List<Article> Articles { get; set; }
     }
 }
