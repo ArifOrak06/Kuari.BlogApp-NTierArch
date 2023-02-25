@@ -11,10 +11,13 @@ namespace BlogApp.Service.Mappings.AutoMapper
            
             CreateMap<CommentCreateDto, Comment>().ReverseMap();
             CreateMap<CommentUpdateDto, Comment>().ReverseMap();
+            CreateMap<CommentListDto, Comment>().ReverseMap();
             CreateMap<ArticleCreateDto, Article>().ReverseMap();
             CreateMap<ArticleUpdateDto, Article>().ReverseMap();
+            CreateMap<ArticleListDto, Article>().ReverseMap();
             CreateMap<CategoryUpdateDto, Category>().ReverseMap();
             CreateMap<CategoryCreateDto, Category>().ReverseMap();
+            CreateMap<CategoryListDto, Category>().ReverseMap();
 
         }
     }

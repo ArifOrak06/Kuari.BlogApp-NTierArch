@@ -19,4 +19,8 @@
     <ProjectReference Include="..\BlogApp.Core\BlogApp.Core.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Seeds\" />
+  </ItemGroup>
+
 </Project>

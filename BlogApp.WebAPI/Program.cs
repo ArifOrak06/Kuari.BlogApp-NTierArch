@@ -1,5 +1,11 @@
+using BlogApp.Core.Repositories;
+using BlogApp.Core.Services;
+using BlogApp.Core.UnitOfWork;
 using BlogApp.Repository.Contexts;
+using BlogApp.Repository.Repositories;
+using BlogApp.Repository.UnitOfWork;
 using BlogApp.Service.Mappings.AutoMapper;
+using BlogApp.Service.Services;
 using BlogApp.Service.Validations;
 using BlogApp.WebAPI.Filters;
 using BlogApp.WebAPI.Middlewares;
@@ -19,9 +25,16 @@ builder.Services.AddControllers( opt =>
 {
     x.RegisterValidatorsFromAssemblyContaining<ArticleCreateDtoValidator>();
 });
+
+builder.Services.AddScoped(typeof(IService<,,,>), typeof(Service<,,,>));
+builder.Services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
+builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
+
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+
+
 builder.Services.Configure<ApiBehaviorOptions>(options =>
 {
     options.SuppressModelStateInvalidFilter = true;

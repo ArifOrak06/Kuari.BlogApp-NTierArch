@@ -12,9 +12,11 @@ using System.Threading.Tasks;
 
 namespace BlogApp.Service.Services
 {
-    public class Service<TEntity, TDto> : IService<TEntity, TDto> 
+    public class Service<TEntity, ListDto, CreateDto, UpdateDto> : IService<TEntity, ListDto, CreateDto, UpdateDto> 
         where TEntity : class, new()
-        where TDto : class,new()
+        where CreateDto : class,new()
+        where UpdateDto : class,new()
+        where ListDto : class,new()
     {
         private readonly IRepository<TEntity> _repository;
         private readonly IUnitOfWork _unitOfWork;
@@ -25,12 +27,12 @@ namespace BlogApp.Service.Services
             _unitOfWork = unitOfWork;
         }
 
-        public async Task<Response<TDto>> AddAsync(TDto dto)
+        public async Task<Response<CreateDto>> AddAsync(CreateDto dto)
         {
             if (dto == null)
             {
                 var errorDto = new ErrorDto("Dto is null");
-                return Response<TDto>.Fail(400, errorDto);
+                return Response<CreateDto>.Fail(400, errorDto);
             }
 
             var entity = ObjectMapper.Mapper.Map<TEntity>(dto);
@@ -39,9 +41,9 @@ namespace BlogApp.Service.Services
 
             await _unitOfWork.CommitAsync();
 
-            var newDto = ObjectMapper.Mapper.Map<TDto>(entity);
+            var newDto = ObjectMapper.Mapper.Map<CreateDto>(entity);
 
-            return Response<TDto>.Success(newDto, 200);
+            return Response<CreateDto>.Success(newDto, 200);
         }
 
         public async Task<Response<NoDataDto>> DeleteAsync(int id)
@@ -54,58 +56,58 @@ namespace BlogApp.Service.Services
             _repository.Delete(data);
             await _unitOfWork.CommitAsync();
 
-            var newDto = ObjectMapper.Mapper.Map<TDto>(data);
+            var newDto = ObjectMapper.Mapper.Map<ListDto>(data);
             return Response<NoDataDto>.Success(204);
         }
 
-        public async Task<Response<IEnumerable<TDto>>> GetAllAsync()
+        public async Task<Response<IEnumerable<ListDto>>> GetAllAsync()
         {
             var entities = await _repository.GetAllAsync();
             if (entities == null)
             {
-                return Response<IEnumerable<TDto>>.Fail(404, "Veri bulunmaması nedenilye getirilememiştir.");
+                return Response<IEnumerable<ListDto>>.Fail(404, "Veri bulunmaması nedenilye getirilememiştir.");
             }
-            var newDtos = ObjectMapper.Mapper.Map<IEnumerable<TDto>>(entities);
-            return Response<IEnumerable<TDto>>.Success(newDtos, 200);
+            var newDtos = ObjectMapper.Mapper.Map<IEnumerable<ListDto>>(entities);
+            return Response<IEnumerable<ListDto>>.Success(newDtos, 200);
         }
 
-        public async Task<Response<IEnumerable<TDto>>> GetByFilterAsync(Expression<Func<TEntity, bool>> predicate)
+        public async Task<Response<IEnumerable<ListDto>>> GetByFilterAsync(Expression<Func<TEntity, bool>> predicate)
         {
             var data = _repository.GetByFilter(predicate).ToList();
             if (data == null)
             {
-                return Response<IEnumerable<TDto>>.Fail(400, "Filter hatası nedeniyle datalar bulunamamıştır.");
+                return Response<IEnumerable<ListDto>>.Fail(400, "Filter hatası nedeniyle datalar bulunamamıştır.");
             }
-            var newDtos = ObjectMapper.Mapper.Map<IEnumerable<TDto>>(data);
+            var newDtos = ObjectMapper.Mapper.Map<IEnumerable<ListDto>>(data);
 
-            return Response<IEnumerable<TDto>>.Success(newDtos, 200);
+            return Response<IEnumerable<ListDto>>.Success(newDtos, 200);
         }
 
-        public async Task<Response<TDto>> GetByIdAsync(int id)
+        public async Task<Response<ListDto>> GetByIdAsync(int id)
         {
             var data = await _repository.GetByIdAsyncy(id);
             if (data == null)
             {
-                return Response<TDto>.Fail(404, $"Girilen {id}'ye sahip veri bulunamamıştır.");
+                return Response<ListDto>.Fail(404, $"Girilen {id}'ye sahip veri bulunamamıştır.");
             }
 
-            var newDto = ObjectMapper.Mapper.Map<TDto>(data);
-            return Response<TDto>.Success(newDto, 200);
+            var newDto = ObjectMapper.Mapper.Map<ListDto>(data);
+            return Response<ListDto>.Success(newDto, 200);
 
         }
 
-        public async Task<Response<TDto>> UpdateAsync(TDto dto, int id)
+        public async Task<Response<UpdateDto>> UpdateAsync(UpdateDto dto, int id)
         {
             var unChangedData = await _repository.GetByIdAsyncy(id);
             if (unChangedData == null)
             {
-                return Response<TDto>.Fail(404, $"Giriilen {id}'ye sahip veri bulunamamıştır.");
+                return Response<UpdateDto>.Fail(404, $"Girilen {id}'ye sahip veri bulunamamıştır.");
             }
             var newEntity = ObjectMapper.Mapper.Map<TEntity>(dto);
             _repository.Update(newEntity);
             await _unitOfWork.CommitAsync();
-            var newDto = ObjectMapper.Mapper.Map<TDto>(newEntity);
-            return Response<TDto>.Success(newDto, 200);
+            var newDto = ObjectMapper.Mapper.Map<UpdateDto>(newEntity);
+            return Response<UpdateDto>.Success(newDto, 200);
         }
     }
 }
