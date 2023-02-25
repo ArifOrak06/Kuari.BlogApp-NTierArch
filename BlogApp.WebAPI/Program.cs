@@ -1,6 +1,8 @@
 using BlogApp.Repository.Contexts;
+using BlogApp.Service.Mappings.AutoMapper;
 using BlogApp.Service.Validations.ArticleValidation;
 using BlogApp.WebAPI.Filters;
+using BlogApp.WebAPI.Middlewares;
 using FluentValidation.AspNetCore;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -31,6 +33,8 @@ builder.Services.AddDbContext<BlogAppDbContext>(opt =>
         options.MigrationsAssembly(Assembly.GetAssembly(typeof(BlogAppDbContext)).GetName().Name);
     });
 });
+
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -41,6 +45,7 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+app.UseCustomException();
 
 app.UseAuthorization();
 

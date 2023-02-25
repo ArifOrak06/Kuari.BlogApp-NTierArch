@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace BlogApp.Core.DTOs
+{ 
     public class CommentCreateDto
     {
         public string Name { get; set; }// notNull, pk, useIdentityColumn, maxLength(100)
