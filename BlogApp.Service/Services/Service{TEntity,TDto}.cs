@@ -55,7 +55,7 @@ namespace BlogApp.Service.Services
             await _unitOfWork.CommitAsync();
 
             var newDto = ObjectMapper.Mapper.Map<TDto>(data);
-            return Response<NoDataDto>.Success(200);
+            return Response<NoDataDto>.Success(204);
         }
 
         public async Task<Response<IEnumerable<TDto>>> GetAllAsync()
