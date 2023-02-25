@@ -26,20 +26,10 @@ namespace BlogApp.Repository.Repositories
 
         }
 
-        public async Task<IEnumerable<T>> AddRangeAsync(IEnumerable<T> entities)
-        {
-            await this._dbSet.AddRangeAsync(entities);
-            return entities;
-        }
 
         public void Delete(T entity)
         {
             this._dbSet.Remove(entity);
-        }
-
-        public void DeleteRange(IEnumerable<T> entities)
-        {
-            this._dbSet.RemoveRange(entities);  
         }
 
         public async Task<IEnumerable<T>> GetAllAsync()

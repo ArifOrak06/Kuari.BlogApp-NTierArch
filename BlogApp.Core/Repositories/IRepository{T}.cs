@@ -13,8 +13,7 @@ namespace BlogApp.Core.Repositories
         IQueryable<T> GetByFilter(Expression<Func<T,bool>> predicate);
         Task<T> GetByIdAsyncy(int id);
         Task<T> AddAsync(T entity);   
-        Task<IEnumerable<T>> AddRangeAsync(IEnumerable<T> entities);
-        void DeleteRange(IEnumerable<T> entities);
+  
         void Delete(T entity);
         void Update(T entity);
 
