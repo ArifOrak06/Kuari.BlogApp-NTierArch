@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BlogApp.Service.Validations.ArticleValidation
+namespace BlogApp.Service.Validations
 {
     public class ArticleUpdateDtoValidator : AbstractValidator<ArticleUpdateDto>
     {

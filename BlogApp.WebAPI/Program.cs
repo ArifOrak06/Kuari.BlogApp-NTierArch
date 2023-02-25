@@ -1,6 +1,6 @@
 using BlogApp.Repository.Contexts;
 using BlogApp.Service.Mappings.AutoMapper;
-using BlogApp.Service.Validations.ArticleValidation;
+using BlogApp.Service.Validations;
 using BlogApp.WebAPI.Filters;
 using BlogApp.WebAPI.Middlewares;
 using FluentValidation.AspNetCore;
