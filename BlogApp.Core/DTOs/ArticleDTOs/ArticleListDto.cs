@@ -13,7 +13,6 @@ namespace BlogApp.Core.DTOs
         public string ContentSummary { get; set; } // notNull
         public string ContentMain { get; set; } // notNull
         public string Picture { get; set; }// nullable
-
         public int CategoryId { get; set; }
     }
 }

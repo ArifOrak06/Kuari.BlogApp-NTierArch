@@ -7,10 +7,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Repositories\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <ProjectReference Include="..\BlogApp.SharedLibrary\BlogApp.SharedLibrary.csproj" />
   </ItemGroup>
 

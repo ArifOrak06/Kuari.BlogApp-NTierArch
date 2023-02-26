@@ -12,5 +12,6 @@ namespace BlogApp.Core.DTOs
         public string Name { get; set; }// notNull, pk, useIdentityColumn, maxLength(100)
         public string ContentMain { get; set; }// notNull
         public int ArticleId { get; set; }
+        public ArticleListDto Article { get; set; }
     }
 }
