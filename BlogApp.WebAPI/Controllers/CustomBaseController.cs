@@ -9,7 +9,7 @@ namespace BlogApp.WebAPI.Controllers
     public class CustomBaseController : ControllerBase
     {
         [NonAction]
-        public IActionResult CraeteActionResult<T>(Response<T> response) where T : class
+        public IActionResult CreateActionResult<T>(Response<T> response) where T : class
         {
             // NoContent 204
             if(response.StatusCode == 204)

@@ -28,6 +28,8 @@ builder.Services.AddControllers( opt =>
 
 builder.Services.AddScoped(typeof(IService<,,,>), typeof(Service<,,,>));
 builder.Services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
+builder.Services.AddScoped<IArticleService,ArticleService>();
+builder.Services.AddScoped<IArticleRepository, ArticleRepository>();
 builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
 
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
