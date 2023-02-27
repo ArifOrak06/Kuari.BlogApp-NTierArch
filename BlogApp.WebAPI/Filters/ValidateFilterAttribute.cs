@@ -11,8 +11,8 @@ namespace BlogApp.WebAPI.Filters
             if(!context.ModelState.IsValid)
             {
                 var errors = context.ModelState.Values.SelectMany(x => x.Errors).Select(x => x.ErrorMessage).ToList();
-                var errorDto = new ErrorDto(errors, true);
-                context.Result = new BadRequestObjectResult(Response<NoDataDto>.Fail(400, errorDto));
+                
+                context.Result = new BadRequestObjectResult(CustomResponseDto<NoDataDto>.Fail(400, errors));
             }
       
         }

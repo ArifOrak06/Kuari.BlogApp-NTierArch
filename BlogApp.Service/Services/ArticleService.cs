@@ -25,16 +25,16 @@ namespace BlogApp.Service.Services
             _unitOfWork = unitOfWork;
         }
 
-        public async Task<Response<ArticleWithCommentsDto>> GetArticleByIdWithCommentsAsync(int id)
+        public async Task<CustomResponseDto<ArticleWithCommentsDto>> GetArticleByIdWithCommentsAsync(int id)
         {
             var data = await this._articleRepository.GetByIdAsyncy(id);
             if (data == null)
             {
-                return Response<ArticleWithCommentsDto>.Fail(404, $" {id}'ye sahip data bulunamamıştır.");
+                return CustomResponseDto<ArticleWithCommentsDto>.Fail(404, $" {id}'ye sahip data bulunamamıştır.");
             }
             var entity = await this._articleRepository.GetArticleByIdWithCommentsAsync(id);
             var articleWithCommentsDto = ObjectMapper.Mapper.Map<ArticleWithCommentsDto>(entity);
-            return Response<ArticleWithCommentsDto>.Success(articleWithCommentsDto,200);
+            return CustomResponseDto<ArticleWithCommentsDto>.Success(200,articleWithCommentsDto);
         }
     }
 }

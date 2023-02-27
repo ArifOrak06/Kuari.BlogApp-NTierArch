@@ -21,7 +21,7 @@ namespace BlogApp.WebAPI.Middlewares
                         _ => 500
                     };
                     context.Response.StatusCode = statusCode;
-                    var response = Response<NoDataDto>.Fail(statusCode, exceptionFeature.Error.Message);
+                    var response = CustomResponseDto<NoDataDto>.Fail(statusCode, exceptionFeature.Error.Message);
                     // API uygulaması olduğu için globale response'u JSON türünde dönmemiz gerekiyor 
                     await context.Response.WriteAsync(JsonSerializer.Serialize(response));
                 });

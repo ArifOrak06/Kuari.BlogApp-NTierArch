@@ -13,6 +13,6 @@ namespace BlogApp.Core.Services
     public interface IArticleService : IService<Article,ArticleListDto,ArticleCreateDto,ArticleUpdateDto>
     {
   
-        Task<Response<ArticleWithCommentsDto>> GetArticleByIdWithCommentsAsync(int id);
+        Task<CustomResponseDto<ArticleWithCommentsDto>> GetArticleByIdWithCommentsAsync(int id);
     }
 }

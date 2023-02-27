@@ -14,12 +14,12 @@ namespace BlogApp.Core.Services
         where UpdateDto : class
         where ListDto : class
     {
-        Task<Response<IEnumerable<ListDto>>> GetAllAsync();
-        Task<Response<IEnumerable<ListDto>>> GetByFilterAsync(Expression<Func<TEntity,bool>> predicate);
-        Task<Response<ListDto>> GetByIdAsync(int id);
-        Task<Response<CreateDto>> AddAsync(CreateDto dto);
-        Task<Response<UpdateDto>> UpdateAsync(UpdateDto dto,int id);
-        Task<Response<NoDataDto>> DeleteAsync(int id);
+        Task<CustomResponseDto<IEnumerable<ListDto>>> GetAllAsync();
+        Task<CustomResponseDto<IEnumerable<ListDto>>> GetByFilterAsync(Expression<Func<TEntity,bool>> predicate);
+        Task<CustomResponseDto<ListDto>> GetByIdAsync(int id);
+        Task<CustomResponseDto<CreateDto>> AddAsync(CreateDto dto);
+        Task<CustomResponseDto<UpdateDto>> UpdateAsync(UpdateDto dto,int id);
+        Task<CustomResponseDto<NoDataDto>> DeleteAsync(int id);
 
 
 

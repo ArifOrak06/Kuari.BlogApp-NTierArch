@@ -4,12 +4,12 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace BlogApp.WebAPI.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/[controller]/[action]")]
     [ApiController]
     public class CustomBaseController : ControllerBase
     {
         [NonAction]
-        public IActionResult CreateActionResult<T>(Response<T> response) where T : class
+        public IActionResult CreateActionResult<T>(CustomResponseDto<T> response) where T : class
         {
             // NoContent 204
             if(response.StatusCode == 204)
