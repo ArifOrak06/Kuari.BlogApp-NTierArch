@@ -9,6 +9,6 @@ namespace BlogApp.WebAPI.Controllers
 
     public class CategoriesController : CustomBaseController
     {
-       
+        private readonly ICategoryService _categoryService;
     }
 }
