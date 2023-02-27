@@ -4,7 +4,6 @@ using BlogApp.Core.UnitOfWork;
 using BlogApp.Repository.Contexts;
 using BlogApp.Repository.Repositories;
 using BlogApp.Repository.UnitOfWork;
-using BlogApp.Service.Mappings.AutoMapper;
 using BlogApp.Service.Services;
 using BlogApp.Service.Validations;
 using BlogApp.WebAPI.Filters;
