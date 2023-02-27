@@ -20,7 +20,7 @@ namespace BlogApp.Repository.Repositories
 
         public async Task<Article> GetArticleByIdWithCommentsAsync(int id)
         {
-            var data = await this._context.Articles.Include(a => a.Comments).Where(c => c.Id == id).SingleOrDefaultAsync();
+            var data = await this._context.Articles.Include(a => a.Comments).Where(a => a.Id == id).SingleOrDefaultAsync();
             return data;
         }
     }

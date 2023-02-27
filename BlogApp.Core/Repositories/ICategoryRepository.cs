@@ -9,5 +9,6 @@ namespace BlogApp.Core.Repositories
 {
     public interface ICategoryRepository : IRepository<Category>
     {
+        Task<Category> GetCategoryByIdWithArticlesAsync(int categoryId);
     }
 }

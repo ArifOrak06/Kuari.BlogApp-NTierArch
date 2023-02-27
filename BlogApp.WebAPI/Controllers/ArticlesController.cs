@@ -44,7 +44,7 @@ namespace BlogApp.WebAPI.Controllers
             return CreateActionResult<ArticleCreateDto>(result);
 
         }
-        [HttpPut("{id}")]
+        [HttpPut]
         public async Task<IActionResult> Update(ArticleUpdateDto updateDto)
         {
             var result = await this._articleService.UpdateAsync(updateDto,updateDto.Id);

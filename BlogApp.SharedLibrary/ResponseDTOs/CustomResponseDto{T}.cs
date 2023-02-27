@@ -27,7 +27,7 @@ namespace BlogApp.SharedLibrary.ResponseDTOs
 
         public static CustomResponseDto<T> Fail(int statusCode, string error)
         {
-            return new CustomResponseDto<T> { StatusCode = statusCode, Errors = { error } };
+            return new CustomResponseDto<T> { StatusCode = statusCode, Errors = new List<string>{ error } };
 
         }
 

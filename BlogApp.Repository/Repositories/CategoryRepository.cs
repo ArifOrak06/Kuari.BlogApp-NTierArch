@@ -1,6 +1,7 @@
 ﻿using BlogApp.Core.Entities.Concrete;
 using BlogApp.Core.Repositories;
 using BlogApp.Repository.Contexts;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,6 +16,13 @@ namespace BlogApp.Repository.Repositories
         public CategoryRepository(BlogAppDbContext context) : base(context)
         {
             this._context = context;
+        }
+
+        public async Task<Category> GetCategoryByIdWithArticlesAsync(int categoryId)
+        {
+            var data = await _context.Categories.Include(x => x.Articles).Where(x => x.Id == categoryId).SingleOrDefaultAsync();
+            return data;
+           
         }
     }
 }

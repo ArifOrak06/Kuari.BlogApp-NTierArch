@@ -9,7 +9,7 @@ namespace BlogApp.Core.Repositories
 {
     public interface ICommentRepository : IRepository<Comment>
     {
-
+        
 
     }
 }
