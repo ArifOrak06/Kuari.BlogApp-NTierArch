@@ -18,7 +18,7 @@ namespace BlogApp.WebAPI.Controllers
             _articleService = articleService;
         }
         [HttpGet]
-        public async Task<IActionResult> GetAllArticles()
+        public async Task<IActionResult> GetArticles()
         {
             var result = await this._articleService.GetAllAsync();
             return CreateActionResult<IEnumerable<ArticleListDto>>(result);
@@ -38,21 +38,21 @@ namespace BlogApp.WebAPI.Controllers
         }
        
         [HttpPost]
-        public async Task<IActionResult> Create(ArticleCreateDto createDto)
+        public async Task<IActionResult> CreateArticle(ArticleCreateDto createDto)
         {
             var result = await this._articleService.AddAsync(createDto);
             return CreateActionResult<ArticleCreateDto>(result);
 
         }
         [HttpPut]
-        public async Task<IActionResult> Update(ArticleUpdateDto updateDto)
+        public async Task<IActionResult> UpdateArticle(ArticleUpdateDto updateDto)
         {
             var result = await this._articleService.UpdateAsync(updateDto,updateDto.Id);
             return CreateActionResult<ArticleUpdateDto>(result);
             
         }
         [HttpDelete("{id}")]
-        public async Task<IActionResult> Remove(int id)
+        public async Task<IActionResult> RemoveArticle(int id)
         {
             var result = await this._articleService.DeleteAsync(id);
             return CreateActionResult<NoDataDto>(result);

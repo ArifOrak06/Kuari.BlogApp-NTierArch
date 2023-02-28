@@ -1,9 +1,11 @@
 ﻿using BlogApp.SharedLibrary.ResponseDTOs;
+using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace BlogApp.WebAPI.Controllers
 {
+    [EnableCors]
     [Route("api/[controller]/[action]")]
     [ApiController]
     public class CustomBaseController : ControllerBase

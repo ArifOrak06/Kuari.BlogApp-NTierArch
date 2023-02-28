@@ -25,6 +25,14 @@ builder.Services.AddControllers( opt =>
     x.RegisterValidatorsFromAssemblyContaining<ArticleCreateDtoValidator>();
 });
 
+builder.Services.AddCors(options =>
+{
+    options.AddDefaultPolicy(opt =>
+    {
+        opt.AllowAnyOrigin().AllowAnyHeader().AllowAnyMethod().AllowCredentials();
+    });
+});
+
 builder.Services.AddScoped(typeof(IService<,,,>), typeof(Service<,,,>));
 builder.Services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
 builder.Services.AddScoped<IArticleService,ArticleService>();
@@ -61,7 +69,7 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
-
+app.UseCors();
 app.UseHttpsRedirection();
 app.UseCustomException();
 
