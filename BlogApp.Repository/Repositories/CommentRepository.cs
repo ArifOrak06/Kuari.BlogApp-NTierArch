@@ -1,6 +1,7 @@
 ﻿using BlogApp.Core.Entities.Concrete;
 using BlogApp.Core.Repositories;
 using BlogApp.Repository.Contexts;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,5 +17,7 @@ namespace BlogApp.Repository.Repositories
         {
             _context = context;
         }
+
+      
     }
 }
